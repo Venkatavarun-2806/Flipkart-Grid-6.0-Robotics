@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Models</title>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('robot1.jpg') no-repeat center center/cover;
+            animation: slideShow 30s infinite;
+        }
+
+        @keyframes slideShow {
+            0% { background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkPqMo2Vv7AvThKBEEYKScumbcu5ZngfsDGg&s') no-repeat center center/cover; }
+            33% { background: url('https://media-cldnry.s-nbcnews.com/image/upload/t_social_share_1024x768_scale,f_auto,q_auto:best/newscms/2023_11/3598896/230317-derm-skin-care-routine-bd-2x1.jpg') no-repeat center center/cover; }
+            66% { background: url('https://media.istockphoto.com/id/1184804468/photo/industrial-technology-concept-factory-automation-smart-factory-industry-4-0.jpg?s=612x612&w=0&k=20&c=1MaCUFJnqZmuugNhMyL5kt4q0BMwiNpzmnJbSggBE6I=') no-repeat center center/cover; }
+            100% { background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkPqMo2Vv7AvThKBEEYKScumbcu5ZngfsDGg&s') no-repeat center center/cover; }
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 60px; /* Increased padding */
+            width: 1200px; /* Increased width */
+            height: 800px; /* Increased height */
+            border-radius: 20px;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Added shadow for better visibility */
+        }
+
+        h1 {
+            font-size: 5em; /* Larger heading */
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Increased space between buttons */
+        }
+
+        button {
+            padding: 25px 40px; /* Larger buttons */
+            font-size: 30px; /* Increased font size */
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            width: 600px; /* Larger button width */
+        }
+
+        button:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <h1>Choose any one for testing</h1>
+        <div class="button-container">
+            <button onclick="location.href='/text_extraction'">Extract the Content on the Product</button>
+            <button onclick="location.href='/expiry_date'">Check the Expiry of the product</button>
+            <button onclick="location.href='/freshness'">Check Freshness of Fruits and Vegetables</button>
+            <button onclick="location.href='/detect'">Detecting the Object in the Image</button>
+        </div>
+    </div>
+</body>
+</html>

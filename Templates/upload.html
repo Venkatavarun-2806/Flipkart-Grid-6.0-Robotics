@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+            background: linear-gradient(45deg, #d3d3d3, #87ceeb, #d3d3d3);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative; /* Ensure container is above the background */
+            background-color: white;
+            padding: 40px;
+            max-width: 90%; /* Set maximum width */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1; /* Ensure container is above the background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        button {
+            padding: 20px 35px;
+            font-size: 1.5em;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            max-width: 100%; /* Limit the image width to container width */
+            height: auto; /* Keep the aspect ratio of the image */
+            margin-top: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Preserve whitespace */
+            font-size: 1.5em;
+            max-width: 100%; /* Limit width */
+            word-wrap: break-word; /* Break long text to avoid overflow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload and Process</button>
+        </form>
+        {% if image_url %}
+        <img id="uploaded-image" src="{{ image_url }}" alt="Uploaded Image">
+        {% endif %}
+        {% if result %}
+        <div id="output">{{ result }}</div>
+        <button onclick="window.location.href='/'">Home Page</button>
+        {% endif %}
+    </div>
+</body>
+</html>
